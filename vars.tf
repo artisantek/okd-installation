@@ -64,6 +64,12 @@ variable "okd-cluster-install-url" {
   default     = "https://github.com/okd-project/okd/releases/download/4.14.0-0.okd-2024-01-06-084517/openshift-install-linux-4.14.0-0.okd-2024-01-06-084517.tar.gz"
 }
 
+variable "okd-client-install-url" {
+  description = "The Installation URL of OKD Cluster"
+  type        = string
+  default     = "https://github.com/okd-project/okd/releases/download/4.14.0-0.okd-2024-01-06-084517/openshift-client-linux-4.14.0-0.okd-2024-01-06-084517.tar.gz"
+}
+
 variable "master-replicas" {
   description = "The Number of Master Instances for OKD"
   type        = string

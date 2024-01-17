@@ -14,6 +14,7 @@ resource "aws_instance" "okd-instance" {
     okd_cluster_name        = var.okd-cluster-name
     okd_domain_name         = var.okd-base-domain
     okd_cluster_install_url = var.okd-cluster-install-url
+    okd_client_install_url = var.okd-cluster-install-url
     master_replicas         = var.master-replicas
     compute_replicas        = var.compute-replicas
     master_instance_type    = var.master-instance-type
@@ -30,6 +31,12 @@ resource "aws_instance" "okd-instance" {
   provisioner "file" {
     source      = "./scripts"
     destination = "/home/ubuntu/"
+  }
+
+  provisioner "remote-exec" {
+      inline = [ 
+        "sh /home/ec2-user/scripts/install.sh"
+      ]
   }
 
 }
